@@ -38,7 +38,16 @@ app.use("/api", adminRoutes);
 
 // Start server
 const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+
+// For Vercel deployment
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+    connectDb();
+  });
+} else {
   connectDb();
-});
+}
+
+// Export for Vercel
+export default app;
