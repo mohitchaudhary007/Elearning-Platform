@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 */node_modules/
+**/node_modules/
 
 # Environment variables
 .env
@@ -14,6 +15,11 @@ dist/
 build/
 */dist/
 */build/
+**/dist/
+**/build/
+
+# Allow public directory for static assets
+!frontend/public/
 
 # Logs
 npm-debug.log*
@@ -73,7 +79,6 @@ jspm_packages/
 
 # Gatsby files
 .cache/
-public
 
 # Storybook build outputs
 .out
@@ -99,14 +104,9 @@ temp/
 ehthumbs.db
 Thumbs.db
 
-# Uploads directory
-uploads/
-*/uploads/
-
-# Database files
-*.db
-*.sqlite
-*.sqlite3
+# Uploads directory (contains user-uploaded content)
+backend/uploads/*
+!backend/uploads/.gitkeep
 
 # Package lock files (optional - you might want to keep these)
 # package-lock.json
