@@ -1,3 +1,7 @@
+# Visit Website
+click to open - https://elearning-platform-iuuvkx7d0-mohits-projects-e1d836a1.vercel.app/
+
+
 # E-Learning Platform
 
 A full-stack e-learning platform built with React.js frontend and Node.js backend, featuring course management, user authentication, payment integration, and video streaming capabilities.
@@ -164,7 +168,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Mohit Chaudhary**
+**Mohit Poonia**
 - GitHub: [@mohitchaudhary007](https://github.com/mohitchaudhary007)
 
 ## 🙏 Acknowledgments
