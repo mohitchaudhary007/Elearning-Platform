@@ -1,52 +1,66 @@
-# Elearning Platform
+# E-Learning Platform
 
-A comprehensive e-learning platform built with React.js frontend and Node.js backend, featuring course management, user authentication, and payment integration.
+A full-stack e-learning platform built with React.js frontend and Node.js backend, featuring course management, user authentication, payment integration, and video streaming capabilities.
 
-## Features
+## 🚀 Features
 
-- **User Authentication**: Login, registration, password reset, and email verification
-- **Course Management**: Create, edit, and manage courses with lectures
-- **Admin Dashboard**: Comprehensive admin panel for course and user management
-- **Payment Integration**: Secure payment processing for course purchases
-- **Progress Tracking**: Monitor learning progress and completion
-- **Responsive Design**: Modern UI that works on all devices
+### For Students
+- User registration and authentication
+- Browse and search courses
+- Course enrollment and progress tracking
+- Video lecture streaming
+- Payment integration for course purchases
+- User dashboard with learning progress
+- Course reviews and ratings
 
-## Tech Stack
+### For Instructors/Admins
+- Course creation and management
+- Video upload and management
+- User management
+- Analytics and insights
+- Payment tracking
+
+## 🛠️ Tech Stack
 
 ### Frontend
-- React.js
-- Vite
-- CSS3
-- Context API for state management
+- **React.js** - UI framework
+- **Vite** - Build tool and development server
+- **CSS3** - Styling
+- **Context API** - State management
 
 ### Backend
-- Node.js
-- Express.js
-- MongoDB
-- JWT Authentication
-- Multer for file uploads
-- Nodemailer for email services
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **MongoDB** - Database
+- **Mongoose** - ODM
+- **JWT** - Authentication
+- **Multer** - File upload handling
+- **Nodemailer** - Email functionality
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 Elearning-Platform/
-├── backend/           # Node.js backend server
-│   ├── controllers/   # Route controllers
-│   ├── models/        # Database models
-│   ├── routes/        # API routes
-│   ├── middlewares/   # Custom middlewares
-│   └── uploads/       # File uploads
-├── frontend/          # React.js frontend
+├── backend/                 # Backend server
+│   ├── controllers/         # Route controllers
+│   ├── database/           # Database configuration
+│   ├── middlewares/        # Custom middlewares
+│   ├── models/             # Database models
+│   ├── routes/             # API routes
+│   ├── uploads/            # File uploads
+│   └── index.js            # Server entry point
+├── frontend/               # React frontend
 │   ├── src/
-│   │   ├── admin/     # Admin dashboard components
-│   │   ├── components/# Reusable components
-│   │   ├── context/   # React context providers
-│   │   └── pages/     # Page components
-│   └── public/        # Static assets
+│   │   ├── admin/          # Admin dashboard components
+│   │   ├── components/     # Reusable components
+│   │   ├── context/        # React context providers
+│   │   ├── pages/          # Page components
+│   │   └── main.jsx        # App entry point
+│   └── index.html
+└── README.md
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js (v14 or higher)
@@ -55,92 +69,111 @@ Elearning-Platform/
 
 ### Installation
 
-1. Clone the repository
-```bash
-git clone https://github.com/mohitchaudhary007/Elearning-Platform.git
-cd Elearning-Platform
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/mohitchaudhary007/Elearning-Platform.git
+   cd Elearning-Platform
+   ```
 
-2. Install backend dependencies
-```bash
-cd backend
-npm install
-```
+2. **Backend Setup**
+   ```bash
+   cd backend
+   npm install
+   ```
 
-3. Install frontend dependencies
-```bash
-cd ../frontend
-npm install
-```
+3. **Environment Configuration**
+   ```bash
+   cp env.example .env
+   ```
+   Edit `.env` file with your configuration:
+   ```env
+   PORT=5000
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   EMAIL=your_email
+   PASSWORD=your_email_password
+   ```
 
-4. Set up environment variables
-```bash
-cd ../backend
-cp .env.example .env
-# Edit .env with your configuration
-```
+4. **Frontend Setup**
+   ```bash
+   cd ../frontend
+   npm install
+   ```
 
-5. Start the backend server
-```bash
-cd backend
-npm start
-```
+### Running the Application
 
-6. Start the frontend development server
-```bash
-cd frontend
-npm run dev
-```
+1. **Start Backend Server**
+   ```bash
+   cd backend
+   npm start
+   ```
+   Server will run on `http://localhost:5000`
 
-## Environment Variables
+2. **Start Frontend Development Server**
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+   Frontend will run on `http://localhost:5173`
 
-Create a `.env` file in the backend directory with the following variables:
-
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_password
-```
-
-## API Endpoints
+## 📝 API Endpoints
 
 ### Authentication
-- `POST /api/user/register` - User registration
-- `POST /api/user/login` - User login
-- `POST /api/user/forgot-password` - Forgot password
-- `POST /api/user/reset-password` - Reset password
+- `POST /api/v1/register` - User registration
+- `POST /api/v1/login` - User login
+- `POST /api/v1/logout` - User logout
+- `POST /api/v1/forgotpassword` - Forgot password
+- `POST /api/v1/resetpassword` - Reset password
 
 ### Courses
-- `GET /api/courses` - Get all courses
-- `POST /api/courses` - Create new course (admin only)
-- `GET /api/courses/:id` - Get course details
-- `PUT /api/courses/:id` - Update course (admin only)
+- `GET /api/v1/courses` - Get all courses
+- `GET /api/v1/course/:id` - Get course by ID
+- `POST /api/v1/course/create` - Create new course (Admin)
+- `PUT /api/v1/course/:id` - Update course (Admin)
+- `DELETE /api/v1/course/:id` - Delete course (Admin)
 
-### Admin
-- `GET /api/admin/users` - Get all users (admin only)
-- `GET /api/admin/courses` - Get all courses (admin only)
+### User Management
+- `GET /api/v1/me` - Get user profile
+- `PUT /api/v1/me/update` - Update user profile
+- `GET /api/v1/users` - Get all users (Admin)
 
-## Contributing
+## 🔧 Configuration
+
+### Database
+The application uses MongoDB. Make sure to:
+1. Set up a MongoDB database
+2. Update the `MONGODB_URI` in your `.env` file
+
+### Email Service
+For password reset functionality, configure your email service in the `.env` file.
+
+### File Uploads
+The application supports file uploads for course materials. Files are stored in the `backend/uploads/` directory.
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Author
+## 👨‍💻 Author
 
 **Mohit Chaudhary**
 - GitHub: [@mohitchaudhary007](https://github.com/mohitchaudhary007)
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 - React.js community
 - Node.js community
-- MongoDB community
+- MongoDB documentation
+- All contributors and supporters
+
+---
+
+⭐ If you find this project helpful, please give it a star!
